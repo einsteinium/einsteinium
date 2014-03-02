@@ -12,13 +12,17 @@ What is Einsteinium?
 ----------------
 
 Einsteinium is a lite version of Bitcoin using scrypt as a proof-of-work algorithm.
- - 2.5 minute block targets
- - subsidy halves in 840k blocks (~4 years)
- - ~84 million total coins
 
-The rest is the same as Bitcoin.
- - 50 coins per block
- - 2016 blocks to retarget difficulty
+- Algorithm: Scrypt PoW
+- Total Einsteinium: 299,792,458
+- Initial block value: 1024
+- Reward Reduction Method: Block Halving
+- Block Target Time: 60 seconds
+- Difficulty Re-targeting: per block (Kimoto Gravity Well)
+- RPC Port: 41879
+- P2P Port: 41878
+- Donation to the Einsteinium Charitable Fund (per block): 2%
+- Donation to to faucets, give-aways and marketing (per block): 0.5%
 
 For more information, as well as an immediately useable, binary version of
 the Einsteinium client sofware, see http://www.einsteinium.org.
