@@ -1111,6 +1111,13 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
     return nSubsidy + nFees;
 }
 
+double GetBlockValueHR(int nHeight)
+{
+   return (GetBlockValue(nHeight, (int64)0) / COIN);
+}
+
+
+
 static const int64 nTargetTimespan = 3.5 * 24 * 60 * 60; // Einsteinium: 3.5 days
 static const int64 nTargetSpacing = 60; // Einsteinium: one minute
 static const int64 nInterval = nTargetTimespan / nTargetSpacing;

@@ -91,6 +91,17 @@ Value getbestblockhash(const Array& params, bool fHelp)
     return hashBestChain.GetHex();
 }
 
+Value getblockvalue(const Array& params, bool fHelp)
+{
+    if (fHelp || params.size() < 1 || params.size() > 1)
+        throw runtime_error(
+            "getblockvalue [height] \n"
+            "Returns the value (subsidy) of the block speficied by [height] parameter.");
+
+    return  GetBlockValueHR(params[0].get_int());
+}
+
+
 Value getdifficulty(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 0)
