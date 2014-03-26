@@ -1326,8 +1326,14 @@ public:
 
     uint256 GetHash() const
     {
-    if(nTime < 1395852105){ return Hash(BEGIN(nVersion), END(nNonce)); }
-	else { return Hash9(BEGIN(nVersion), END(nNonce)); }
+    if((int64)nTime < 1395852105)
+      { 
+	return Hash(BEGIN(nVersion), END(nNonce)); 
+      }
+    else
+      { 
+	return Hash9(BEGIN(nVersion), END(nNonce)); 
+      }  
     }
 
     int64 GetBlockTime() const
@@ -1381,7 +1387,7 @@ public:
 	}
 	else
 	{
-        return GetHash();
+          return GetHash();
 	}
     }
 

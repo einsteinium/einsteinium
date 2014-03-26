@@ -1949,10 +1949,10 @@ bool SetBestChain(CValidationState &state, CBlockIndex* pindexNew)
     nBestChainWork = pindexNew->nChainWork;
     nTimeBestReceived = GetTime();
     nTransactionsUpdated++;
-    printf("SetBestChain: new best=%s  height=%d  log2_work=%.8g  tx=%lu  date=%s progress=%f\n",
+    printf("SetBestChain: new best=%s  height=%d  log2_work=%.8g  tx=%lu  date=%s progress=%f\n timestamp=%lld",
       hashBestChain.ToString().c_str(), nBestHeight, log(nBestChainWork.getdouble())/log(2.0), (unsigned long)pindexNew->nChainTx,
       DateTimeStrFormat("%Y-%m-%d %H:%M:%S", pindexBest->GetBlockTime()).c_str(),
-      Checkpoints::GuessVerificationProgress(pindexBest));
+      Checkpoints::GuessVerificationProgress(pindexBest),pindexBest->GetBlockTime());
 
     // Check the version of the last 100 blocks to see if we need to upgrade:
     if (!fIsInitialDownload)
@@ -4663,13 +4663,10 @@ void static EinsteiniumMiner(CWallet *pwallet)
         loop
         {
             unsigned int nHashesDone = 0;
-
             uint256 thash;
-            char scratchpad[SCRYPT_SCRATCHPAD_SIZE];
             loop
             {
-                scrypt_1024_1_1_256_sp(BEGIN(pblock->nVersion), BEGIN(thash), scratchpad);
-
+                thash = pblock->GetHash();
                 if (thash <= hashTarget)
                 {
                     // Found a solution
