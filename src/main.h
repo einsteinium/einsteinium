@@ -1326,7 +1326,8 @@ public:
 
     uint256 GetHash() const
     {
-        return Hash9(BEGIN(nVersion), END(nNonce));
+    if(nTime < 1395852105){ return Hash(BEGIN(nVersion), END(nNonce)); }
+	else { return Hash9(BEGIN(nVersion), END(nNonce)); }
     }
 
     int64 GetBlockTime() const
@@ -1372,10 +1373,16 @@ public:
 
     uint256 GetPoWHash() const
     {
-//        uint256 thash;
-//        scrypt_1024_1_1_256(BEGIN(nVersion), BEGIN(thash));
-//        return thash;
-	 return GetHash();
+	if(nTime < 1395852105)
+	{
+		uint256 thash;
+		scrypt_1024_1_1_256(BEGIN(nVersion), BEGIN(thash));
+	        return thash;
+	}
+	else
+	{
+        return GetHash();
+	}
     }
 
     CBlockHeader GetBlockHeader() const
