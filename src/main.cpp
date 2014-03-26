@@ -580,7 +580,7 @@ bool CTransaction::CheckTransaction(CValidationState &state) const
 
     if (IsCoinBase())
     {
-        if (vin[0].scriptSig.size() < 2 || vin[0].scriptSig.size() > 100)
+        if (vin[0].scriptSig.size() < 2 || vin[0].scriptSig.size() > 200)
             return state.DoS(100, error("CTransaction::CheckTransaction() : coinbase script size"));
     }
     else
