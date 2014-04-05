@@ -33,14 +33,20 @@ namespace Checkpoints
     //   (no blocks before with a timestamp after, none after with
     //    timestamp before)
     // + Contains no strange transactions
-    static MapCheckpoints mapCheckpoints;
+    static MapCheckpoints mapCheckpoints =
+        boost::assign::map_list_of
+        ( 0, uint256("0x4e56204bb7b8ac06f860ff1c845f03f984303b5b97eb7b42868f714611aed94b"))
+        ( 14871, uint256("0x5dedc3dd860f008c717d69b8b00f0476de8bc6bdac8d543fb58c946f32f982fa"))
+        ( 36032, uint256("0xff37468190b2801f2e72eb1762ca4e53cda6c075af48343f28a32b649512e9a8"))
+        ( 51365, uint256("0x702b407c68091f3c97a587a8d92684666bb622f6821944424b850964b366e42c"))
+        ;
         
     static const CCheckpointData data = {
        &mapCheckpoints,
-          1392841423, // * UNIX timestamp of last checkpoint block
-          0,    // * total number of transactions between genesis and last checkpoint
+          1396699732, // * UNIX timestamp of last checkpoint block
+          279028,    // * total number of transactions between genesis and last checkpoint
                     //   (the tx=... number in the SetBestChain debug.log lines)
-          0     // * estimated number of transactions per day after checkpoint
+          8000     // * estimated number of transactions per day after checkpoint
     };
 
     static MapCheckpoints mapCheckpointsTestnet;
@@ -63,7 +69,7 @@ namespace Checkpoints
     {
         return true; //Checkpoints disabled
 
-	/*if (fTestNet) return true; // Testnet has no checkpoints
+	if (fTestNet) return true; // Testnet has no checkpoints
         if (!GetBoolArg("-checkpoints", true))
             return true;
 
@@ -71,7 +77,7 @@ namespace Checkpoints
 
         MapCheckpoints::const_iterator i = checkpoints.find(nHeight);
         if (i == checkpoints.end()) return true;
-        return hash == i->second;; */
+        return hash == i->second;; 
     }
 
     // Guess how far we are in the verification process at the given block index
@@ -84,7 +90,7 @@ namespace Checkpoints
 
 	return 1.0-(float)(nNow - pindex->nTime)/(float)(nNow-1392841423); // No checkpoints so go by time since genesis alone.
 
-	/*
+	
         double fWorkBefore = 0.0; // Amount of work done before pindex
         double fWorkAfter = 0.0;  // Amount of work left after pindex (estimated)
         // Work is defined as: 1.0 per transaction before the last checkoint, and
@@ -106,20 +112,20 @@ namespace Checkpoints
             fWorkAfter = nExpensiveAfter*fSigcheckVerificationFactor;
         }
 
-        return fWorkBefore / (fWorkBefore + fWorkAfter); */
+        return fWorkBefore / (fWorkBefore + fWorkAfter); 
     }
 
     int GetTotalBlocksEstimate()
     {
 	return 0;
-	/*
+	
         if (fTestNet) return 0; // Testnet has no checkpoints
         if (!GetBoolArg("-checkpoints", true))
             return 0;
 
         const MapCheckpoints& checkpoints = *Checkpoints().mapCheckpoints;
 
-        return checkpoints.rbegin()->first; */
+        return checkpoints.rbegin()->first; 
 
     }
 
@@ -127,7 +133,7 @@ namespace Checkpoints
     {
 	return NULL;
 
-	/*
+	
         if (fTestNet) return NULL; // Testnet has no checkpoints
         if (!GetBoolArg("-checkpoints", true))
             return NULL;
@@ -141,6 +147,6 @@ namespace Checkpoints
             if (t != mapBlockIndex.end())
                 return t->second;
         }
-        return NULL; */
+        return NULL; 
     }
 }
