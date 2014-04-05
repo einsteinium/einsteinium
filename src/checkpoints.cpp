@@ -67,8 +67,6 @@ namespace Checkpoints
 
     bool CheckBlock(int nHeight, const uint256& hash)
     {
-        return true; //Checkpoints disabled
-
 	if (fTestNet) return true; // Testnet has no checkpoints
         if (!GetBoolArg("-checkpoints", true))
             return true;
@@ -88,9 +86,6 @@ namespace Checkpoints
 
         int64 nNow = time(NULL);
 
-	return 1.0-(float)(nNow - pindex->nTime)/(float)(nNow-1392841423); // No checkpoints so go by time since genesis alone.
-
-	
         double fWorkBefore = 0.0; // Amount of work done before pindex
         double fWorkAfter = 0.0;  // Amount of work left after pindex (estimated)
         // Work is defined as: 1.0 per transaction before the last checkoint, and
@@ -117,8 +112,6 @@ namespace Checkpoints
 
     int GetTotalBlocksEstimate()
     {
-	return 0;
-	
         if (fTestNet) return 0; // Testnet has no checkpoints
         if (!GetBoolArg("-checkpoints", true))
             return 0;
@@ -131,9 +124,6 @@ namespace Checkpoints
 
     CBlockIndex* GetLastCheckpoint(const std::map<uint256, CBlockIndex*>& mapBlockIndex)
     {
-	return NULL;
-
-	
         if (fTestNet) return NULL; // Testnet has no checkpoints
         if (!GetBoolArg("-checkpoints", true))
             return NULL;
