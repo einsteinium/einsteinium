@@ -1070,7 +1070,7 @@ int static generateMTRandom(unsigned int s, int range)
     boost::uniform_int<> dist(1, range);
     return dist(gen);
 }
-static const int64 nDiffChangeTarget = 20; // Patch effective @ block 56000
+static const int64 nDiffChangeTarget = 56000; // Patch effective @ block 56000
 
 int64 static GetBlockValue(int nHeight, int64 nFees)
 {
