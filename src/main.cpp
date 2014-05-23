@@ -1088,7 +1088,7 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
     WormholeStartBlock = StartOffset + ((epoch - 1)  * 36000); // Wormholes start from Epoch 2
 
 
-    if(epoch > 1 && epoch < 731 && nHeight >= WormholeStartBlock && nHeight < WormholeStartBlock + 180)
+    if(epoch > 1 && epoch < 148 && nHeight >= WormholeStartBlock && nHeight < WormholeStartBlock + 180)
     {
         nSubsidy = 2973 * COIN;
     }
