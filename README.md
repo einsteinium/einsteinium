@@ -5,7 +5,8 @@ http:/emc2.foundation
 
 Copyright (c) 2009-2013 Bitcoin Developers
 Copyright (c) 2011-2013 Litecoin Developers
-Copyright (c) 2014 Einsteinium Developers
+Copyright (c) 2014-2015 Einsteinium Developers
+Copyright (c) 2015 Einsteinium Foundation
 
 
 What is Einsteinium?
