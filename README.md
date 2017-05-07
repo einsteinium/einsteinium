@@ -1,7 +1,7 @@
 Einsteinium integration/staging tree
 ================================
 
-http:/emc2.foundation
+http://emc2.foundation
 
 Copyright (c) 2009-2013 Bitcoin Developers
 Copyright (c) 2011-2013 Litecoin Developers
@@ -26,8 +26,7 @@ Einsteinium is a lite version of Bitcoin using scrypt as a proof-of-work algorit
 - Donation to to faucets, give-aways and marketing (per block): 0.5%
 
 For more information, as well as an immediately useable, binary version of
-the Einsteinium client sofware, see http://emc2.foundation
-.
+the Einsteinium client sofware, see http://emc2.foundation.
 
 License
 -------
