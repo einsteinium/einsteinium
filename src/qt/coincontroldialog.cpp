@@ -298,7 +298,7 @@ void CoinControlDialog::clipboardBytes()
     GUIUtil::setClipboard(ui->labelCoinControlBytes->text());
 }
 
-// copy label "Priority" to clipboard
+// copy label " PRIority" to clipboard
 void CoinControlDialog::clipboardPriority()
 {
     GUIUtil::setClipboard(ui->labelCoinControlPriority->text());

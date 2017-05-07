@@ -1083,9 +1083,9 @@ void ThreadMapPort()
     /* miniupnpc 1.5 */
     devlist = upnpDiscover(2000, multicastif, minissdpdpath, 0);
 #else
-    /* miniupnpc 1.6 */
+    /* Einsteinium 0.9.1 : miniupnpc 1.9 */
     int error = 0;
-    devlist = upnpDiscover(2000, multicastif, minissdpdpath, 0, 0, &error);
+    devlist = upnpDiscover(2000, multicastif, minissdpdpath, 0, 0, 2,&error);
 #endif
 
     struct UPNPUrls urls;
@@ -1192,13 +1192,14 @@ void MapPort(bool)
 // The first name is used as information source for addrman.
 // The second name should resolve to a list of seed addresses.
 static const char *strMainNetDNSSeed[][2] = {
-    {"einsteinium.org", "dnsseed.einsteinium.org"},
+    {"emc2.foundation", " dnsseeder01.emc2.foundation"},
+    {"emc2.foundation", " dnsseeder02.emc2.foundation"},
+    {"pm-tech.at", "dnsseed.pm-tech.at"},
     {NULL, NULL}
 };
 
 static const char *strTestNetDNSSeed[][2] = {
-    {"einsteiniumtools.com", "testnet-seed.einsteiniumtools.com"},
-    {"weminemnc.com", "testnet-seed.weminemnc.com"},
+    {"emc2.foundation", " testseeder.emc2.foundation"},
     {NULL, NULL}
 };
 
@@ -1259,7 +1260,7 @@ void DumpAddresses()
     CAddrDB adb;
     adb.Write(addrman);
 
-    printf("Flushed %d addresses to peers.dat  %"PRI64d"ms\n",
+    printf("Flushed %d addresses to peers.dat  %" PRI64d "ms\n",
            addrman.size(), GetTimeMillis() - nStart);
 }
 
