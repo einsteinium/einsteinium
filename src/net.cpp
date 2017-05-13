@@ -1187,11 +1187,7 @@ void MapPort(bool)
 // The second name should resolve to a list of seed addresses.
 static const char *strMainNetDNSSeed[][2] = {
     {"emc2.foundation", "dnsseeder01.emc2.foundation"},
-<<<<<<< Updated upstream
-	{"backup.emc2.foundation", "dnsseeder02.emc2.foundation"},
-=======
     {"backup.emc2.foundation", "dnsseeder02.emc2.foundation"},
->>>>>>> Stashed changes
     {NULL, NULL}
 };
 
