@@ -1187,11 +1187,7 @@ void MapPort(bool)
 // The second name should resolve to a list of seed addresses.
 static const char *strMainNetDNSSeed[][2] = {
     {"emc2.foundation", "dnsseeder01.emc2.foundation"},
-<<<<<<< Updated upstream
 	{"backup.emc2.foundation", "dnsseeder02.emc2.foundation"},
-=======
-    {"backup.emc2.foundation", "dnsseeder02.emc2.foundation"},
->>>>>>> Stashed changes
     {NULL, NULL}
 };
 
@@ -1246,7 +1242,7 @@ void ThreadDNSAddressSeed()
 unsigned int pnSeed[] =
 {
 
-0x8A5B1225, 0xA83FE9AE, 0xA83F0C1E, 0x8A5B4DB5, 0xBCE2974C
+0x2E69929B, 0x4E2F6CC4, 0x4F7529CE, 0xBCE2974C, 0x48D12718
 
 };
 

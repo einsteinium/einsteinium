@@ -50,13 +50,16 @@ namespace Checkpoints
           2000     // * estimated number of transactions per day after checkpoint
     };
 
-    static MapCheckpoints mapCheckpointsTestnet;
+    static MapCheckpoints mapCheckpointsTestnet =
+        boost::assign::map_list_of
+        ( 0, uint256("0xa4271888b5e60092c3e7183a76d454741e9a7a55f2b4afbe574615829e406bee"))
+        ( 6, uint256("0x8618a815ad94f918a7d3d4df7ebc4df5f14da1ea25d0eb156b6a32f9621c2ce4"));
 
     static const CCheckpointData dataTestnet = {
         &mapCheckpointsTestnet,
-        1369685559,
-        37581,
-        300
+        1494590578,
+        7,
+        1500
     };
 
     const CCheckpointData &Checkpoints() {
