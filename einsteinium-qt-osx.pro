@@ -1,7 +1,7 @@
 TEMPLATE = app
 TARGET = einsteinium-qt
 macx:TARGET = "Einsteinium-Qt"
-VERSION = 0.9.1.0
+VERSION = 0.9.2.0
 INCLUDEPATH += src src/json src/qt
 QT += core gui network
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
