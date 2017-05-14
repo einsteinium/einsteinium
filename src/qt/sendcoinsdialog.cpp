@@ -414,7 +414,7 @@ void SendCoinsDialog::coinControlClipboardBytes()
     GUIUtil::setClipboard(ui->labelCoinControlBytes->text());
 }
 
-// Coin Control: copy label "Priority" to clipboard
+// Coin Control: copy label " PRIority" to clipboard
 void SendCoinsDialog::coinControlClipboardPriority()
 {
     GUIUtil::setClipboard(ui->labelCoinControlPriority->text());

@@ -91,6 +91,6 @@ Value dumpprivkey(const Array& params, bool fHelp)
         throw JSONRPCError(RPC_TYPE_ERROR, "Address does not refer to a key");
     CKey vchSecret;
     if (!pwalletMain->GetKey(keyID, vchSecret))
-        throw JSONRPCError(RPC_WALLET_ERROR, "Private key for address " + strAddress + " is not known");
+        throw JSONRPCError(RPC_WALLET_ERROR, " PRIvate key for address " + strAddress + " is not known");
     return CBitcoinSecret(vchSecret).ToString();
 }

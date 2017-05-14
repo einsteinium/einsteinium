@@ -1082,10 +1082,14 @@ void ThreadMapPort()
 #ifndef UPNPDISCOVER_SUCCESS
     /* miniupnpc 1.5 */
     devlist = upnpDiscover(2000, multicastif, minissdpdpath, 0);
-#else
+#elif MINIUPNPC_API_VERSION < 14
     /* miniupnpc 1.6 */
     int error = 0;
     devlist = upnpDiscover(2000, multicastif, minissdpdpath, 0, 0, &error);
+#else
+    /* miniupnpc 1.9.20150730 */
+    int error = 0;
+    devlist = upnpDiscover(2000, multicastif, minissdpdpath, 0, 0, 2, &error);
 #endif
 
     struct UPNPUrls urls;
@@ -1116,16 +1120,6 @@ void ThreadMapPort()
 
         try {
             loop {
-#ifndef UPNPDISCOVER_SUCCESS
-                /* miniupnpc 1.5 */
-                r = UPNP_AddPortMapping(urls.controlURL, data.first.servicetype,
-                                    port.c_str(), port.c_str(), lanaddr, strDesc.c_str(), "TCP", 0);
-#else
-                /* miniupnpc 1.6 */
-                r = UPNP_AddPortMapping(urls.controlURL, data.first.servicetype,
-                                    port.c_str(), port.c_str(), lanaddr, strDesc.c_str(), "TCP", 0, "0");
-#endif
-
                 if(r!=UPNPCOMMAND_SUCCESS)
                     printf("AddPortMapping(%s, %s, %s) failed with code %d (%s)\n",
                         port.c_str(), port.c_str(), lanaddr, r, strupnperror(r));
@@ -1192,13 +1186,13 @@ void MapPort(bool)
 // The first name is used as information source for addrman.
 // The second name should resolve to a list of seed addresses.
 static const char *strMainNetDNSSeed[][2] = {
-    {"einsteinium.org", "dnsseed.einsteinium.org"},
+    {"emc2.foundation", "dnsseeder01.emc2.foundation"},
+	{"backup.emc2.foundation", "dnsseeder02.emc2.foundation"},
     {NULL, NULL}
 };
 
 static const char *strTestNetDNSSeed[][2] = {
-    {"einsteiniumtools.com", "testnet-seed.einsteiniumtools.com"},
-    {"weminemnc.com", "testnet-seed.weminemnc.com"},
+    {"test.emc2.foundation", "dnsseedertest01.emc2.foundation"},
     {NULL, NULL}
 };
 
@@ -1248,7 +1242,7 @@ void ThreadDNSAddressSeed()
 unsigned int pnSeed[] =
 {
 
-0x8A5B1225, 0xA83FE9AE, 0xA83F0C1E, 0x8A5B4DB5, 0xBCE2974C
+0x2E69929B, 0x4E2F6CC4, 0x4F7529CE, 0xBCE2974C, 0x48D12718
 
 };
 
@@ -1259,7 +1253,7 @@ void DumpAddresses()
     CAddrDB adb;
     adb.Write(addrman);
 
-    printf("Flushed %d addresses to peers.dat  %"PRI64d"ms\n",
+    printf("Flushed %d addresses to peers.dat  %" PRI64d "ms\n",
            addrman.size(), GetTimeMillis() - nStart);
 }
 

@@ -1,11 +1,12 @@
 Einsteinium integration/staging tree
 ================================
 
-http://www.einsteinium.org
+http://emc2.foundation
 
 Copyright (c) 2009-2013 Bitcoin Developers
-Copyright (c) 2011-2013 Litecoin Developers
-Copyright (c) 2014 Einsteinium Developers
+Copyright (c) 2011-2013 Einsteinium Developers
+Copyright (c) 2014-2015 Einsteinium Developers
+Copyright (c) 2015 Einsteinium Foundation
 
 
 What is Einsteinium?
@@ -25,7 +26,7 @@ Einsteinium is a lite version of Bitcoin using scrypt as a proof-of-work algorit
 - Donation to to faucets, give-aways and marketing (per block): 0.5%
 
 For more information, as well as an immediately useable, binary version of
-the Einsteinium client sofware, see http://www.einsteinium.org.
+the Einsteinium client sofware, see http://emc2.foundation.
 
 License
 -------
@@ -43,8 +44,7 @@ If it is a simple/trivial/non-controversial change, then one of the Einsteinium
 development team members simply pulls it.
 
 If it is a *more complicated or potentially controversial* change, then the patch
-submitter will be asked to start a discussion (if they haven't already) on the
-[mailing list](http://sourceforge.net/mailarchive/forum.php?forum_name=bitcoin-development).
+submitter will be asked to start a discussion.
 
 The patch will be accepted if there is broad consensus that it is a good thing.
 Developers should expect to rework and resubmit patches if the code doesn't
@@ -52,7 +52,7 @@ match the project's coding conventions (see `doc/coding.txt`) or are
 controversial.
 
 The `master` branch is regularly built and tested, but is not guaranteed to be
-completely stable. [Tags](https://github.com/bitcoin/bitcoin/tags) are created
+completely stable. [Tags](https://github.com/emc2foundation/qt-wallet-emc2/tags) are created
 regularly to indicate new official, stable release versions of Einsteinium.
 
 Testing
